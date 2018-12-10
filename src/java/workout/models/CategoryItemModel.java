@@ -13,7 +13,7 @@ import java.util.LinkedList;
  */
 public class CategoryItemModel {
     private String categoryItemName;
-    private LinkedList<ExerciseItemModel> exerciseItemModel;
+    private LinkedList<ExerciseItem> exerciseItemModel;
 
     public String getCategoryItemName() {
         return categoryItemName;
@@ -23,11 +23,11 @@ public class CategoryItemModel {
         this.categoryItemName = categoryItemName;
     }
 
-    public LinkedList<ExerciseItemModel>  getExerciseItemModel() {
+    public LinkedList<ExerciseItem>  getExerciseItemModel() {
         return exerciseItemModel;
     }
 
-    public void setExerciseItemModel(LinkedList<ExerciseItemModel> exerciseItemModel) {
+    public void setExerciseItemModel(LinkedList<ExerciseItem> exerciseItemModel) {
         this.exerciseItemModel = exerciseItemModel;
     }
 }

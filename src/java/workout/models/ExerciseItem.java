@@ -11,7 +11,9 @@ import java.util.LinkedList;
  *
  * @author christopher.eckles
  */
-public class ExerciseItemModel {
+public class ExerciseItem {
     private String exerciseItemName;
     private LinkedList<MuscleGroup> muscleGroups;
+    
+    
 }

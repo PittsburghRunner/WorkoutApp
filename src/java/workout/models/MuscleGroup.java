@@ -5,13 +5,24 @@
  */
 package workout.models;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 /**
  *
  * @author christopher.eckles
  */
-public class MuscleGroup {
+@ManagedBean(name="muscleGroups")
+@ViewScoped
+public class MuscleGroup implements Serializable {
     String muscleGroup;
     LinkedList<Muscle> muscles;
+    
+    MuscleGroup(String name, ArrayList<String> muscles){
+        muscleGroup = name;
+        
+    }
 }

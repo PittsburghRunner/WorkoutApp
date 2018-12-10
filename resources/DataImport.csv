@@ -1,0 +1,73 @@
+MuscleGroup,Muscle,ExcerciseItem
+Back, Back,Pull-Ups
+Back, Back,Chin-Ups
+Back, Back,Lat Pull-Downs
+Back, Back,Bent Over Barbell or Dumbbell Rows
+Back, Back,T-Bar Rows
+Back, Back,Seated Cable Rows
+Back, Back,Chest Supported Barbell or Dumbbell Rows
+Back, Back,Chest Supported Machine Rows
+Back, Back,Inverted Rows
+Back, Back,"Barbell, Dumbbell or Machine Shrugs"
+Upper Body, Biceps,
+Upper Body, Biceps,Standing Barbell or Dumbbell Curls
+Upper Body, Biceps,Barbell or Dumbbell Preacher Curls
+Upper Body, Biceps,Seated Dumbbell Curls
+Upper Body, Biceps,Incline Dumbbell Curls
+Upper Body, Biceps,Hammer Curls
+Upper Body, Biceps,Concentration Curls
+Upper Body, Biceps,Cable Curls
+Upper Body, Biceps,Biceps Curl Machine
+Legs, Calves,
+Upper Body, Chest,Flat Barbell or Dumbbell Bench Press
+Upper Body, Chest,Incline Barbell or Dumbbell Bench Press
+Upper Body, Chest,Decline Barbell or Dumbbell Bench Press
+Upper Body, Chest,Flat Chest Press Machine
+Upper Body, Chest,Incline Chest Press Machine
+Upper Body, Chest,Decline Chest Press Machine
+Upper Body, Chest,Dips (on parallel bars with slight forward lean)
+Upper Body, Chest,Push-Ups
+Upper Body, Chest,Flat Dumbbell Flyes
+Upper Body, Chest,Incline Dumbbell Flyes
+Upper Body, Chest,Decline Dumbbell Flyes
+Upper Body, Chest,Pec Deck Machine
+Upper Body, Chest,Cable Crossovers/Cable Flyes
+Upper Body, Forearms,
+Legs, Hamstrings,
+Legs, Quadriceps,Barbell or Dumbbell Squats
+Legs, Quadriceps,Barbell or Dumbbell Front Squats
+Legs, Quadriceps,Barbell or Dumbbell Split Squats
+Legs, Quadriceps,Barbell or Dumbbell Lunges
+Legs, Quadriceps,Barbell or Dumbbell Step-Ups
+Legs, Quadriceps,Leg Press
+Legs, Quadriceps,Single Leg Press
+Legs, Quadriceps,Machine Squat/Hack Squat
+Legs, Quadriceps,Leg Extensions
+Upper Body, Shoulders,
+Back, Trapezius,
+Upper Body, Triceps,
+Legs,Hamstrings,Barbell or Dumbbell Romanian Deadlifts
+Legs,Hamstrings,Barbell or Dumbbell Straight Leg Deadlifts
+Legs,Hamstrings,Barbell or Dumbbell Sumo Deadlifts
+Legs,Hamstrings,Glute-Ham Raises
+Legs,Hamstrings,Hyperextensions
+Legs,Hamstrings,Cable Pull-Throughs
+Legs,Hamstrings,Good-Mornings
+Legs,Hamstrings,Leg Curls
+Upper Body,Shoulders,Seated Overhead Barbell or Dumbbell Press
+Upper Body,Shoulders,Standing Overhead Barbell or Dumbbell Press
+Upper Body,Shoulders,Overhead Machine Press
+Upper Body,Shoulders,Arnold Press
+Upper Body,Shoulders,"Barbell, Dumbbell or Machine Upright Rows"
+Upper Body,Shoulders,"Dumbbell, Cable or Machine Lateral Raises"
+Upper Body,Shoulders,"Dumbbell, Cable or Machine Front Raises"
+Upper Body,Shoulders,"Barbell, Dumbbell, or Machine Rear Delt Rows, Raises or Flyes"
+Upper Body,Triceps,"Dips (on parallel bars, elbows close to body, without forward lean)"
+Upper Body,Triceps,Flat Close Grip Bench Press
+Upper Body,Triceps,Decline Close Grip Bench Press
+Upper Body,Triceps,Close Grip Push-Ups
+Upper Body,Triceps,Laying Barbell or Dumbbell Triceps Extensions
+Upper Body,Triceps,Skull Crushers
+Upper Body,Triceps,Overhead Barbell or Dumbbell Triceps Extensions
+Upper Body,Triceps,Cable Press-Downs
+Upper Body,Triceps,Bench Dips
