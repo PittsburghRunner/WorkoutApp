@@ -10,8 +10,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
-import workout.controls.MuscleGroupService;
+import javax.faces.bean.ApplicationScoped;
+import workout.controls.importService;
 import workout.models.ExerciseItem;
 import workout.models.Muscle;
 import workout.models.MuscleGroup;
@@ -21,7 +21,7 @@ import workout.models.MuscleGroup;
  * @author christopher.eckles
  */
 @ManagedBean(name = "muscleGroupView")
-@ViewScoped
+@ApplicationScoped
 public class MuscleGroupView implements Serializable {
 
     private List<MuscleGroup> muscleGroups;
@@ -29,8 +29,8 @@ public class MuscleGroupView implements Serializable {
     private List<ExerciseItem> exerciseItems;
 
 
-    @ManagedProperty("#{muscleGroupService}")
-    private MuscleGroupService muscleGroupService = new MuscleGroupService();
+    @ManagedProperty("#{importService}")
+    private importService importService;
 
     /**
      *
@@ -38,21 +38,29 @@ public class MuscleGroupView implements Serializable {
      */
     @PostConstruct
     public void init() {
-          muscleGroups =  muscleGroupService.getMuscleGroups();
-          muscles = muscleGroupService.getMuscles();
-          exerciseItems = muscleGroupService.getExerciseItems();
+          muscleGroups =  importService.getMuscleGroups();
+          muscles = importService.getMuscles();
+          exerciseItems = importService.getExerciseItems();
     }
 
     public List<MuscleGroup> getMuscleGroups() {
         return muscleGroups;
     }
 
-    public MuscleGroupService getMuscleGroupService() {
-        return muscleGroupService;
+    public List<Muscle> getMuscles() {
+        return muscles;
     }
 
-    public void setMuscleGroupService(MuscleGroupService muscleGroupService) {
-        this.muscleGroupService = muscleGroupService;
+    public List<ExerciseItem> getExerciseItems() {
+        return exerciseItems;
+    }
+
+    public importService getImportService() {
+        return importService;
+    }
+
+    public void setImportService(importService importService) {
+        this.importService = importService;
     }
     
     

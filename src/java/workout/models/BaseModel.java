@@ -5,10 +5,15 @@
  */
 package workout.models;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 /**
  *
  * @author ceckles
  */
+@ManagedBean(name = "BaseModel")
+@ViewScoped
 public class BaseModel {
 
     protected Long id;

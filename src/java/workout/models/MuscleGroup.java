@@ -14,6 +14,7 @@ import javax.faces.bean.ViewScoped;
  *
  * @author christopher.eckles
  */
+
 @ManagedBean(name = "muscleGroup")
 @ViewScoped
 public class MuscleGroup extends BaseModel implements Serializable {

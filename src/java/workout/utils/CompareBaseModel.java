@@ -6,12 +6,15 @@
 package workout.utils;
 
 import java.util.List;
+import javax.faces.bean.ManagedBean;
 import workout.models.BaseModel;
 
 /**
  *
  * @author ceckles
  */
+@ManagedBean(name = "compareBaseModel")
+@ApplicationScoped
 public class CompareBaseModel {
        public static BaseModel getByName(String name, List<? extends BaseModel> baseModel) {
 

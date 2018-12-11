@@ -5,10 +5,15 @@
  */
 package workout.models;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 /**
  *
  * @author christopher.eckles
  */
+@ManagedBean(name = "muscle")
+@ViewScoped
 public class Muscle extends BaseModel{
     
     Long muscleGroupId;

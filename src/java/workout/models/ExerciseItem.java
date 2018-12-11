@@ -5,10 +5,15 @@
  */
 package workout.models;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 /**
  *
  * @author christopher.eckles
  */
+@ManagedBean(name = "exerciseItem")
+@ViewScoped
 public class ExerciseItem extends BaseModel {
 
     private Long muscleId;
