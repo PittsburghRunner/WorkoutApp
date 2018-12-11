@@ -6,8 +6,7 @@
 package workout.models;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -15,14 +14,14 @@ import javax.faces.bean.ViewScoped;
  *
  * @author christopher.eckles
  */
-@ManagedBean(name="muscleGroups")
+@ManagedBean(name = "muscleGroup")
 @ViewScoped
-public class MuscleGroup implements Serializable {
-    String muscleGroup;
-    LinkedList<Muscle> muscles;
-    
-    MuscleGroup(String name, ArrayList<String> muscles){
-        muscleGroup = name;
-        
+public class MuscleGroup extends BaseModel implements Serializable {
+
+
+    public MuscleGroup(Long id, String name) {
+        this.id = id;
+        this.name = name;
     }
+
 }

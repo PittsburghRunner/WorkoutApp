@@ -8,12 +8,17 @@
         <title>Workout Tracker</title>
     </h:head>
     <h:body>
-    <p:dataTable var="muscleGroups" value="#{MuscleGroupView.muscleGroups}">
-    <p:column headerText="Id">
-        <h:outputText value="#{muscleGroup.muscleGroup}" />
+    <p:dataTable var="muscleGroup" value="#{muscleGroupView.muscleGroups}">
+    <p:column headerText="Muscle Goup">
+        <h:outputText value="#{muscleGroup.name}" />
     </p:column>
+       <p:column headerText="Select">
+        <h:link value="Select" outcome="/muscleGroup">
+            <f:param name="id" value="#{muscleGroup.id}" />
+        </h:link>
+    </p:column>    
  
-    <p:column headerText="Year">
+<!--    <p:column headerText="Year">
         <h:outputText value="#{car.year}" />
     </p:column>
  
@@ -23,7 +28,7 @@
  
     <p:column headerText="Color">
         <h:outputText value="#{car.color}" />
-    </p:column>
+    </p:column>-->
 </p:dataTable>
     </h:body>
     

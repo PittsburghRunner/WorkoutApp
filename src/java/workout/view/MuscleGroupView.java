@@ -5,47 +5,55 @@
  */
 package workout.view;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import workout.controls.MuscleGroupService;
+import workout.models.ExerciseItem;
+import workout.models.Muscle;
 import workout.models.MuscleGroup;
 
 /**
  *
  * @author christopher.eckles
  */
-@ManagedBean(name="sampleData")
+@ManagedBean(name = "muscleGroupView")
 @ViewScoped
 public class MuscleGroupView implements Serializable {
-     
-    private Collection<MuscleGroup> muscleGroups;
-     
-    @ManagedProperty("#{muscleGroup}")
-    private MuscleGroupService service;
-    
-@PostConstruct
+
+    private List<MuscleGroup> muscleGroups;
+    private List<Muscle> muscles;
+    private List<ExerciseItem> exerciseItems;
+
+
+    @ManagedProperty("#{muscleGroupService}")
+    private MuscleGroupService muscleGroupService = new MuscleGroupService();
+
+    /**
+     *
+     * 
+     */
+    @PostConstruct
     public void init() {
-        try {
-            service = new MuscleGroupService();
-        } catch (IOException ex) {
-            Logger.getLogger(MuscleGroupView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        muscleGroups = service.getMuscleGroups();
+          muscleGroups =  muscleGroupService.getMuscleGroups();
+          muscles = muscleGroupService.getMuscles();
+          exerciseItems = muscleGroupService.getExerciseItems();
     }
-     
-    public Collection<MuscleGroup> getMuscleGroups() {
+
+    public List<MuscleGroup> getMuscleGroups() {
         return muscleGroups;
     }
- 
-    public void setService(MuscleGroupService service) {
-        this.service = service;
+
+    public MuscleGroupService getMuscleGroupService() {
+        return muscleGroupService;
     }
+
+    public void setMuscleGroupService(MuscleGroupService muscleGroupService) {
+        this.muscleGroupService = muscleGroupService;
+    }
+    
+    
 }

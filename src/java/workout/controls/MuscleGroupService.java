@@ -9,51 +9,72 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import workout.models.BaseModel;
 import workout.models.ExerciseItem;
 import workout.models.Muscle;
 import workout.models.MuscleGroup;
+import workout.utils.CompareBaseModel;
 
 /**
  *
  * @author christopher.eckles
  */
+@ManagedBean(name = "muscleGroupService")
+@ApplicationScoped
 public class MuscleGroupService {
 
-    public static final String WORKOUT_DATA = "C:\\Users\\christopher.eckles\\Documents\\NetBeansProjects\\WorkoutApp\\resources\\DataImport.xlsx";
-    List<MuscleGroup> muscleGroups;
-    List<Muscle> muscles;
-    List<ExerciseItem> exercises;
+    //   public static final String WORKOUT_DATA = "C:\\Users\\christopher.eckles\\Documents\\NetBeansProjects\\WorkoutApp\\resources\\DataImport.xlsx";
+    public static final String WORKOUT_DATA = "/Users/ceckles/NetBeansProjects/WorkoutApp/resources/DataImport.csv";
 
-      
+    private List<MuscleGroup> muscleGroups = new LinkedList();
+    private List<Muscle> muscles = new LinkedList();
+    private List<ExerciseItem> exerciseItems = new LinkedList();
 
-    public MuscleGroupService() throws FileNotFoundException, IOException {
-
+    public MuscleGroupService() {
         try (Reader in = new FileReader(WORKOUT_DATA)) {
-            HashMap<String, String> muscleGroups = new HashMap();
-            HashMap<String, String> muscles = new HashMap();
-            HashMap<String, String> exercises = new HashMap();
-            
-            Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
 
+            Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
+//.withHeader("MuscleGroup", "Muscle", "ExerciseItem")
             for (CSVRecord record : records) {
+                String muscleGroup = "";
+                String muscle = "";
+                String exerciseItem = "";
+                Long id = 0l;
+                if (record.get("MuscleGroup") != null) {
+                    muscleGroup = record.get("MuscleGroup");
+                }
+                if (record.get("Muscle") != null) {
+                    muscle = record.get("Muscle");
+                }
+                if (record.get("ExerciseItem") != null) {
+                    exerciseItem = record.get("ExerciseItem");
+                }
 
-                String muscleGroup = record.get("MuscleGroup");
-                String muscle = record.get("Muscle");
-                String exersizeItem = record.get("ExcerciseItem");
-
-                muscleGroups.put(muscleGroup, "");
-                muscles.put(muscle, muscleGroup);
-                exercises.put(exersizeItem, muscle);
+                id = record.getRecordNumber();
+                if(CompareBaseModel.getByName(muscleGroup, muscleGroups) == null){
+                   muscleGroups.add(new MuscleGroup(id, muscleGroup));
+                }
+                if(CompareBaseModel.getByName(muscle, muscles) == null){
+                muscles.add(new Muscle(id, muscle, CompareBaseModel.getByName(muscleGroup, muscleGroups).getId()));
+                }
+                if(CompareBaseModel.getByName(exerciseItem, exerciseItems) == null){
+                exerciseItems.add(new ExerciseItem(id, exerciseItem, CompareBaseModel.getByName(muscle, muscles).getId()));
+                }
             }
 
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MuscleGroupService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MuscleGroupService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
     }
 
     public List<MuscleGroup> getMuscleGroups() {
@@ -64,10 +85,8 @@ public class MuscleGroupService {
         return muscles;
     }
 
-    public List<ExerciseItem> getExercises() {
-        return exercises;
+    public List<ExerciseItem> getExerciseItems() {
+        return exerciseItems;
     }
 
-
-    
 }

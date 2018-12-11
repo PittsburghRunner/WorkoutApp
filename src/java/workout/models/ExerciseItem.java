@@ -5,15 +5,22 @@
  */
 package workout.models;
 
-import java.util.LinkedList;
-
 /**
  *
  * @author christopher.eckles
  */
-public class ExerciseItem {
-    private String exerciseItemName;
-    private LinkedList<MuscleGroup> muscleGroups;
-    
-    
+public class ExerciseItem extends BaseModel {
+
+    private Long muscleId;
+
+    public ExerciseItem(Long id, String name, Long muscleId) {
+        this.id = id;
+        this.name = name;
+        this.muscleId = muscleId;
+    }
+
+    public Long getMuscleId() {
+        return muscleId;
+    }
+
 }
