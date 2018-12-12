@@ -10,9 +10,8 @@ import java.io.Serializable;
 import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import workout.models.Trainee;
 
@@ -26,9 +25,14 @@ public class TraineeView implements Serializable {
 
     private static final long serialVersionUID = 1l;
 
+    @ManagedProperty("#{name}")
     private static String name;
+    
+    @ManagedProperty("#{age}")
     private static String age;
-    private static Trainee trainee;
+    
+    @ManagedProperty("#{trainee}")
+    private  Trainee trainee;
 
     public String getName() {
         return name;
@@ -46,11 +50,17 @@ public class TraineeView implements Serializable {
         this.age = age;
     }
 
-    public static Trainee getTrainee() {
+    public  Trainee getTrainee() {
         return trainee;
     }
 
-    public static String save(Trainees trainees) throws IOException {
+    public  void setTrainee(Trainee trainee) {
+        this.trainee = trainee;
+    }
+
+    
+    
+    public String save(Trainees trainees) throws IOException {
         Map<String, String> params = FacesContext.getCurrentInstance().
                 getExternalContext().getRequestParameterMap();
         String i = params.get("i");
@@ -73,7 +83,7 @@ public class TraineeView implements Serializable {
         return null;
     }
 
-    public static boolean isRegistered() {
+    public boolean isRegistered() {
         return (trainee != null);
     }
 

@@ -13,8 +13,6 @@ import javax.faces.bean.ViewScoped;
  *
  * @author ceckles
  */
-@ManagedBean(name = "BaseModel")
-@ViewScoped
 public class BaseModel {
 
     protected Date date = new Date();
