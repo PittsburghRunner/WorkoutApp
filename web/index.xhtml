@@ -8,27 +8,8 @@
         <title>Workout Tracker</title>
     </h:head>
     <h:body>
-        <p:dataTable var="exerciseItem" value="#{muscleGroupView.getExerciseItems()}">
-            <p:column headerText="Exercise">
-                <h:outputText value="#{exerciseItem.getName()}" />
-            </p:column>
-            <p:column headerText="Muscle">
-                <h:outputText value="#{compareBaseModel.getById(exerciseItem.getMuscleId(),muscleGroupView.getMuscles())}" />
-            </p:column>  
-            <p:column filterBy="#{car.color}" headerText="MuscleGroup">
-                <h:outputText value="#{compareBaseModel.getById(compareBaseModel.getById(exerciseItem.getMuscleId(),muscleGroupView.getMuscles()).getMuscleGroupId(),muscleGroupView.getMuscleGroups())}" />
-            </p:column>   
-                    <p:column filterBy="#{car.color}" headerText="Color" footerText="in" filterMatchMode="in">
-            <f:facet name="filter">
-                <p:selectCheckboxMenu label="Colors" onchange="PF('carsTable').filter()" scrollHeight="150" styleClass="custom-filter">
-                    <f:selectItems value="#{dtFilterView.colors}" />
-                </p:selectCheckboxMenu>
-            </f:facet>
-            <h:outputText value="#{car.color}" />
-        </p:column>
-        </p:dataTable>
-        
-    </h:body>
+    <h:outputText value="Welcome, please create a user here."/>
+    </h:body>       
 
 </html>
 

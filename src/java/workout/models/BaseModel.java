@@ -5,6 +5,7 @@
  */
 package workout.models;
 
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -16,16 +17,19 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class BaseModel {
 
+    protected Date date = new Date();
     protected Long id;
     protected String name;
     protected String description;
 
+    
+    public BaseModel() {
+    }
+    
     public String getDescription() {
         return description;
     }
 
-    public BaseModel() {
-    }
 
     public String getName() {
         return name;

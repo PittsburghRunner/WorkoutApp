@@ -18,6 +18,9 @@ public class ExerciseItem extends BaseModel {
 
     private Long muscleId;
 
+    public ExerciseItem() {
+    }
+
     public ExerciseItem(Long id, String name, Long muscleId) {
         this.id = id;
         this.name = name;

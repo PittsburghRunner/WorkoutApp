@@ -9,6 +9,22 @@ package workout.models;
  *
  * @author christopher.eckles
  */
-public class SetModel {
+public class SetModel extends BaseModel{
+    private static int repCount;
+    private static float weight;
+    
+    public SetModel(int repCount, float weight){
+        this.repCount = repCount;
+        this.weight = weight;
+    }
+    
+    public int getRepCount() {
+        return repCount;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+    
     
 }

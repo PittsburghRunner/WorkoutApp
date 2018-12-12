@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Workout Tracker</title>
+    </h:head>
+    <h:body>
+        <p:dataTable var="exerciseItem" value="#{muscleGroupView.getExerciseItems()}" widgetVar="exerciseItemTable">
+            <p:column headerText="Exercise">
+                <h:outputText value="#{exerciseItem.getName()}" />
+            </p:column>
+            <p:column headerText="Muscle">
+                <h:outputText value="#{compareBaseModel.getById(exerciseItem.getMuscleId(),muscleGroupView.getMuscles())}"/>
+            </p:column>     
+            <p:column filterBy="#{compareBaseModel.getById(compareBaseModel.getById(exerciseItem.getMuscleId(),muscleGroupView.getMuscles()).getMuscleGroupId(),muscleGroupView.getMuscleGroups())}" headerText="Muscle Group" filterMatchMode="exact">
+            <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('exerciseItemTable').filter()" styleClass="custom-filter">
+                    <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{muscleGroupView.getMuscleGroups()}" />
+                </p:selectOneMenu>
+            </f:facet>
+                <h:outputText value="#{compareBaseModel.getById(compareBaseModel.getById(exerciseItem.getMuscleId(),muscleGroupView.getMuscles()).getMuscleGroupId(),muscleGroupView.getMuscleGroups())}" />
+        </p:column>
+        </p:dataTable>
+    </h:body>
+
+</html>
+
