@@ -6,10 +6,13 @@
 package workout.view;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import workout.models.Trainee;
 
@@ -19,7 +22,9 @@ import workout.models.Trainee;
  */
 @ManagedBean(name = "traineeView")
 @SessionScoped
-public class TraineeView {
+public class TraineeView implements Serializable {
+
+    private static final long serialVersionUID = 1l;
 
     private static String name;
     private static String age;
@@ -46,10 +51,10 @@ public class TraineeView {
     }
 
     public static String save(Trainees trainees) throws IOException {
-        Map<String, String> params =FacesContext.getCurrentInstance().
-                   getExternalContext().getRequestParameterMap();
+        Map<String, String> params = FacesContext.getCurrentInstance().
+                getExternalContext().getRequestParameterMap();
         String i = params.get("i");
-        
+
         if (trainee == null) {
             trainee = new Trainee(name, new Integer(age));
             trainees.addTrainee(trainee);
@@ -61,10 +66,11 @@ public class TraineeView {
                     new FacesMessage("Updated, " + name + "! Your age is now set to " + age + "."));
         }
 
-        if(i.equals("2")){
-                 return      "exercise.xhtml?facesRedirect=true";
+        if (i.equals("2")) {
+            return "exercise.xhtml?facesRedirect=true";
 
-        } return null;
+        }
+        return null;
     }
 
     public static boolean isRegistered() {

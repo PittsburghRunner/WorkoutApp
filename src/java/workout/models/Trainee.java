@@ -6,12 +6,15 @@
 package workout.models;
 
 import java.util.Date;
-import workout.view.TraineeView;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author christopher.eckles
  */
+@ManagedBean(name = "trainee")
+@SessionScoped
 public class Trainee extends BaseModel{
     Integer age;
     

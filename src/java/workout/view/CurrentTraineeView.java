@@ -27,11 +27,7 @@ import workout.models.Trainee;
 public class CurrentTraineeView implements Serializable {
 
     private Trainee trainee; 
-    
-
-    @ManagedProperty("#{importService}")
-    private ImportService importService;
-
+   
     /**
      *
      * 
