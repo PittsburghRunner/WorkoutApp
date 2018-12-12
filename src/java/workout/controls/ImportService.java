@@ -23,15 +23,15 @@ import workout.models.MuscleGroup;
 import workout.utils.CompareBaseModel;
 
 /**
- *
+ *  This class uses apache.commons.CSV library to build the exercise data from a CSV or Excel
  * @author christopher.eckles
  */
 @ManagedBean(name = "importService")
 @ApplicationScoped
 public class ImportService {
 
-    //   public static final String WORKOUT_DATA = "C:\\Users\\christopher.eckles\\Documents\\NetBeansProjects\\WorkoutApp\\resources\\DataImport.xlsx";
-    public static final String WORKOUT_DATA = "/Users/ceckles/NetBeansProjects/WorkoutApp/resources/DataImport.csv";
+       public static final String WORKOUT_DATA = "C:\\Users\\christopher.eckles\\Documents\\NetBeansProjects\\WorkoutApp\\resources\\DataImport.csv";
+    //public static final String WORKOUT_DATA = "/Users/ceckles/NetBeansProjects/WorkoutApp/resources/DataImport.csv";
 
     private LinkedList<MuscleGroup> muscleGroups = new LinkedList();
     private LinkedList<Muscle> muscles = new LinkedList();
@@ -42,7 +42,6 @@ public class ImportService {
         try (Reader in = new FileReader(WORKOUT_DATA)) {
 
             Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
-//.withHeader("MuscleGroup", "Muscle", "ExerciseItem")
             for (CSVRecord record : records) {
                 String muscleGroup = null;
                 String muscle = null;

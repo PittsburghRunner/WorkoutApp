@@ -17,10 +17,10 @@
                 <p:menuitem value="Select a Workout" outcome="exercise.xhtml" icon="pi pi-file" rendered="#{traineeView.isRegistered()}">
                     <f:param name="i" value="2" />
                 </p:menuitem>
-                <p:menuitem value="Workout" outcome="workout.xhtml" icon="pi pi-briefcase" rendered="#{traineeView.isRegistered()}">
+                <p:menuitem value="Workout in Progress" outcome="index.xhtml" icon="pi pi-briefcase" rendered="#{traineeView.isRegistered()}">
                     <f:param name="i" value="3" />
                 </p:menuitem>
-                <p:menuitem value="#{traineeView.name}'s Stats" outcome="index.xhtml" icon="pi pi-briefcase" rendered="#{traineeView.isRegistered()}">
+                <p:menuitem value="#{traineeView.name}'s Stats" outcome="workout.xhtml" icon="pi pi-briefcase" rendered="#{traineeView.isRegistered()}">
                     <f:param name="i" value="4" />
                 </p:menuitem>
                 <p:menuitem value="See current trainees" outcome="trainees.xhtml" icon="pi pi-star">

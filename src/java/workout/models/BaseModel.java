@@ -16,7 +16,7 @@ import javax.faces.bean.ViewScoped;
 public class BaseModel {
 
     protected Date date = new Date();
-    protected Long id;
+    protected Long id = new Date().getTime();
     protected String name;
     protected String description;
 

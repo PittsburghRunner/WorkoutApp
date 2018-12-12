@@ -5,6 +5,7 @@
  */
 package workout.utils;
 
+import java.util.LinkedList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import workout.models.BaseModel;
@@ -36,5 +37,15 @@ public class CompareBaseModel {
         }
 
         return null;
+    }
+      public static LinkedList<? extends BaseModel> getAllById(Long id, LinkedList<? extends BaseModel> baseModel) {
+        LinkedList<BaseModel> newList = new LinkedList();
+        for (BaseModel item : baseModel) {
+            if (item.getId().equals(id)) {
+                newList.add(item);
+            }
+        }
+
+        return newList;
     }
 }

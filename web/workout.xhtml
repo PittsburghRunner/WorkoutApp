@@ -10,10 +10,10 @@
     </h:head>
     <h:body>
         <ui:include src="menu.xhtml" />
-        <p:dataTable var="exerciseItem" value="#{exerciseView.getExerciseItems()}" widgetVar="exerciseItemTable">
+        <p:dataTable var="workout" value="#{workoutView.getWorkoutHistoryForUser(traineeView.trainee.getID())}" widgetVar="workout">
             <p:column headerText="Exercise">
-                <p:link outcome="workout.xhtml" value="#{exerciseItem.getName()}" >
-                    <f:param name="exerciseItemId" value="#{exerciseItem.getId()}" />
+                <p:link outcome="workoutDetails.xhtml" value="#{workout.traineeModelId}" >
+                    <f:param name="exercise" value="#{workout.traineeModelId}" />
                 </p:link>
                 <h:outputText />
             </p:column>

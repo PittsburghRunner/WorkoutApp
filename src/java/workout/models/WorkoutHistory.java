@@ -18,10 +18,9 @@ public class WorkoutHistory extends BaseModel implements Serializable {
 
 
 
-    private static Long traineeModelId;
-    private static Long exerciseItemId;
-    
-    private static LinkedList<Set> sets;
+    private Long traineeModelId;
+    private Long exerciseItemId;
+    private LinkedList<Set> sets;
 
     public WorkoutHistory(Long traineeModelId, Long exerciseItemId) {
         Long time = (new Date()).getTime();
