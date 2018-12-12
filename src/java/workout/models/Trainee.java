@@ -19,11 +19,6 @@ public class Trainee extends BaseModel{
     Integer age;
     
     
-    public Trainee(){
-        
-    }
-    
-    
     public Trainee(String name, int age){
         this.id = (new Date()).getTime();
         this.name = name;

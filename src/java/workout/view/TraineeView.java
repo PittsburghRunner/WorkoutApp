@@ -31,8 +31,7 @@ public class TraineeView implements Serializable {
     @ManagedProperty("#{age}")
     private static String age;
     
-    @ManagedProperty("#{trainee}")
-    private  Trainee trainee;
+    private Trainee trainee;
 
     public String getName() {
         return name;
