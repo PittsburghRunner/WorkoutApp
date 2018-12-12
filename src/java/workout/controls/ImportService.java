@@ -10,7 +10,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ApplicationScoped;
@@ -18,7 +17,6 @@ import javax.faces.bean.ManagedBean;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang3.StringUtils;
-import workout.models.BaseModel;
 import workout.models.ExerciseItem;
 import workout.models.Muscle;
 import workout.models.MuscleGroup;
@@ -30,16 +28,16 @@ import workout.utils.CompareBaseModel;
  */
 @ManagedBean(name = "importService")
 @ApplicationScoped
-public class importService {
+public class ImportService {
 
     //   public static final String WORKOUT_DATA = "C:\\Users\\christopher.eckles\\Documents\\NetBeansProjects\\WorkoutApp\\resources\\DataImport.xlsx";
     public static final String WORKOUT_DATA = "/Users/ceckles/NetBeansProjects/WorkoutApp/resources/DataImport.csv";
 
-    private List<MuscleGroup> muscleGroups = new LinkedList();
-    private List<Muscle> muscles = new LinkedList();
-    private List<ExerciseItem> exerciseItems = new LinkedList();
+    private LinkedList<MuscleGroup> muscleGroups = new LinkedList();
+    private LinkedList<Muscle> muscles = new LinkedList();
+    private LinkedList<ExerciseItem> exerciseItems = new LinkedList();
 
-    public importService() {
+    public ImportService() {
         System.out.println("Importing Data");
         try (Reader in = new FileReader(WORKOUT_DATA)) {
 
@@ -77,21 +75,21 @@ public class importService {
             }
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(importService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ImportService.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(importService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ImportService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public List<MuscleGroup> getMuscleGroups() {
+    public LinkedList<MuscleGroup> getMuscleGroups() {
         return muscleGroups;
     }
 
-    public List<Muscle> getMuscles() {
+    public LinkedList<Muscle> getMuscles() {
         return muscles;
     }
 
-    public List<ExerciseItem> getExerciseItems() {
+    public LinkedList<ExerciseItem> getExerciseItems() {
         return exerciseItems;
     }
 

@@ -6,31 +6,34 @@
 package workout.view;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ApplicationScoped;
-import workout.controls.importService;
+import workout.controls.ImportService;
 import workout.models.ExerciseItem;
 import workout.models.Muscle;
 import workout.models.MuscleGroup;
+import workout.models.WorkoutHistory;
 
 /**
  *
  * @author christopher.eckles
  */
-@ManagedBean(name = "muscleGroupView")
+@ManagedBean(name = "exerciseView")
 @ApplicationScoped
-public class MuscleGroupView implements Serializable {
+public class ExerciseView implements Serializable {
 
-    private List<MuscleGroup> muscleGroups;
-    private List<Muscle> muscles;
-    private List<ExerciseItem> exerciseItems;
-
+    private LinkedList<MuscleGroup> muscleGroups;
+    private LinkedList<Muscle> muscles;
+    private LinkedList<ExerciseItem> exerciseItems;
+    
+    private LinkedList<WorkoutHistory> workoutHistory;
 
     @ManagedProperty("#{importService}")
-    private importService importService;
+    private ImportService importService;
 
     /**
      *
@@ -55,11 +58,11 @@ public class MuscleGroupView implements Serializable {
         return exerciseItems;
     }
 
-    public importService getImportService() {
+    public ImportService getImportService() {
         return importService;
     }
 
-    public void setImportService(importService importService) {
+    public void setImportService(ImportService importService) {
         this.importService = importService;
     }
     

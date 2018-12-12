@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Workout Tracker</title>
+    </h:head>
+    <h:body>
+        <ui:include src="menu.xhtml" />
+        <p:dataTable var="exerciseItem" value="#{exerciseView.getExerciseItems()}" widgetVar="exerciseItemTable">
+            <p:column headerText="Exercise">
+                <p:link outcome="workout.xhtml" value="#{exerciseItem.getName()}" >
+                    <f:param name="exerciseItemId" value="#{exerciseItem.getId()}" />
+                    <f:param name="i" value="3" />
+                </p:link>
+                <h:outputText />
+            </p:column>
+            <p:column headerText="Muscle">
+                <h:outputText value="#{compareBaseModel.getById(exerciseItem.getMuscleId(),exerciseView.getMuscles())}"/>
+            </p:column>   
+            <p:column headerText="Muscle Group">
+
+<!--            <p:column filterBy="#{compareBaseModel.getById(compareBaseModel.getById(exerciseItem.getMuscleId(),exerciseView.getMuscles()).getMuscleGroupId(),exerciseView.getMuscleGroups())}" headerText="Muscle Group" filterMatchMode="exact">-->
+                <!--                <f:facet name="filter">
+                                    <p:selectOneMenu onchange="PF('exerciseItemTable').filter()" styleClass="custom-filter">
+                                        <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                                        <f:selectItems value="#{exerciseView.getMuscleGroups()}" />
+                                    </p:selectOneMenu>
+                                </f:facet>-->
+                <h:outputText value="#{compareBaseModel.getById(compareBaseModel.getById(exerciseItem.getMuscleId(),exerciseView.getMuscles()).getMuscleGroupId(),exerciseView.getMuscleGroups())}" />
+            </p:column>
+        </p:dataTable>
+    </h:body>
+
+</html>
+
