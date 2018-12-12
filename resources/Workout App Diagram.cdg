@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Interface name="Timed" package="workout.interfaces" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Methods>
+        <Method name="getDuration" returnType="Date" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Class name="ImportService" package="workout.controls" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="WORKOUT_DATA" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="muscleGroups" type="LinkedList&lt;MuscleGroup&gt;" visibility="private"/>
+        <Field name="muscles" type="LinkedList&lt;Muscle&gt;" visibility="private"/>
+        <Field name="exerciseItems" type="LinkedList&lt;ExerciseItem&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getMuscleGroups" returnType="LinkedList&lt;MuscleGroup&gt;" visibility="public"/>
+        <Method name="getMuscles" returnType="LinkedList&lt;Muscle&gt;" visibility="public"/>
+        <Method name="getExerciseItems" returnType="LinkedList&lt;ExerciseItem&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Weightable" package="workout.interfaces" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Methods>
+        <Method name="getWeightInPounds" returnType="double" visibility="package"/>
+        <Method name="getWeightInKiloGrams" returnType="double" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Class name="Workout" package="workout.interfaces" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="BaseModel" package="workout.models" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="date" type="Date" visibility="protected"/>
+        <Field name="id" type="Long" visibility="protected"/>
+        <Field name="name" type="String" visibility="protected"/>
+        <Field name="description" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getDescription" returnType="String" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getId" returnType="Long" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MuscleGroup" package="workout.models" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Long" name="id"/>
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ExerciseModel" package="workout.models" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="WorkoutHistory" package="workout.models" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="traineeModelId" type="Long" visibility="private"/>
+        <Field name="exerciseItemId" type="Long" visibility="private"/>
+        <Field name="sets" type="LinkedList&lt;Set&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Long" name="traineeModelId"/>
+          <Argument type="Long" name="exerciseItemId"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTraineeModelId" returnType="Long" visibility="public"/>
+        <Method name="getExerciseItemId" returnType="Long" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ExerciseItem" package="workout.models" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="muscleId" type="Long" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Long" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="Long" name="muscleId"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMuscleId" returnType="Long" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Muscle" package="workout.models" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="muscleGroupId" type="Long" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Long" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="Long" name="muscleGroupId"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMuscleGroupId" returnType="Long" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Trainee" package="workout.models" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="age" type="Integer" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="age"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAge" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="age"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Set" package="workout.models" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="repCount" type="int" visibility="private" isStatic="true"/>
+        <Field name="weightInPounds" type="Double" visibility="private" isStatic="true"/>
+        <Field name="endTime" type="Date" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="repCount"/>
+          <Argument type="Double" name="weight"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getRepCount" returnType="int" visibility="public"/>
+        <Method name="getEndTime" returnType="Date" visibility="public" isStatic="true"/>
+        <Method name="setEndTime" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="getDuration" returnType="Date" visibility="public"/>
+        <Method name="getWeightInPounds" returnType="double" visibility="public"/>
+        <Method name="getWeightInKiloGrams" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CompareBaseModel" package="workout.utils" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getByName" returnType="BaseModel" visibility="public" isStatic="true">
+          <Argument type="String" name="name"/>
+          <Argument type="List&lt;? extends BaseModel&gt;" name="baseModel"/>
+        </Method>
+        <Method name="getById" returnType="BaseModel" visibility="public" isStatic="true">
+          <Argument type="Long" name="id"/>
+          <Argument type="List&lt;? extends BaseModel&gt;" name="baseModel"/>
+        </Method>
+        <Method name="getAllById" returnType="LinkedList&lt;? extends BaseModel&gt;" visibility="public" isStatic="true">
+          <Argument type="Long" name="id"/>
+          <Argument type="LinkedList&lt;? extends BaseModel&gt;" name="baseModel"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Helpers" package="workout.utils" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="concatenateLong" returnType="Long" visibility="public" isStatic="true">
+          <Argument type="Long" name="ids"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Converters" package="workout.utils" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="POUNDS_TO_KILOS_MULTIPLIER" type="double" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="KILOS_TO_POUNDS_MULTIPLIER" type="double" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="poundsToKilos" returnType="double" visibility="public" isStatic="true">
+          <Argument type="double" name="pounds"/>
+        </Method>
+        <Method name="kilosToPounds" returnType="double" visibility="public" isStatic="true">
+          <Argument type="double" name="kilos"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ExerciseView" package="workout.view" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="muscleGroups" type="LinkedList&lt;MuscleGroup&gt;" visibility="private"/>
+        <Field name="muscles" type="LinkedList&lt;Muscle&gt;" visibility="private"/>
+        <Field name="exerciseItems" type="LinkedList&lt;ExerciseItem&gt;" visibility="private"/>
+        <Field name="workoutHistory" type="LinkedList&lt;WorkoutHistory&gt;" visibility="private"/>
+        <Field name="importService" type="ImportService" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="getMuscleGroups" returnType="List&lt;MuscleGroup&gt;" visibility="public"/>
+        <Method name="getMuscles" returnType="List&lt;Muscle&gt;" visibility="public"/>
+        <Method name="getExerciseItems" returnType="List&lt;ExerciseItem&gt;" visibility="public"/>
+        <Method name="getImportService" returnType="ImportService" visibility="public"/>
+        <Method name="setImportService" returnType="void" visibility="public">
+          <Argument type="ImportService" name="importService"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TraineeView" package="workout.view" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="name" type="String" visibility="private" isStatic="true"/>
+        <Field name="age" type="String" visibility="private" isStatic="true"/>
+        <Field name="trainee" type="Trainee" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getAge" returnType="String" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="String" name="age"/>
+        </Method>
+        <Method name="getTrainee" returnType="Trainee" visibility="public"/>
+        <Method name="setTrainee" returnType="void" visibility="public">
+          <Argument type="Trainee" name="trainee"/>
+        </Method>
+        <Method name="save" returnType="String" visibility="public">
+          <Argument type="Trainees" name="trainees"/>
+        </Method>
+        <Method name="isRegistered" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Trainees" package="workout.view" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields>
+        <Field name="trainees" type="LinkedList&lt;Trainee&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="getTrainees" returnType="LinkedList&lt;Trainee&gt;" visibility="public" isStatic="true"/>
+        <Method name="addTrainee" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="Trainee" name="trainee"/>
+        </Method>
+        <Method name="removeTrainee" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="Trainee" name="trainee"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="WorkoutView" package="workout.view" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields>
+        <Field name="traineeModelId" type="Long" visibility="private"/>
+        <Field name="exerciseItemId" type="Long" visibility="private"/>
+        <Field name="sets" type="LinkedList&lt;Set&gt;" visibility="private"/>
+        <Field name="workoutHistory" type="LinkedList&lt;WorkoutHistory&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="getTraineeModelId" returnType="Long" visibility="public"/>
+        <Method name="setTraineeModelId" returnType="void" visibility="public">
+          <Argument type="Long" name="traineeModelId"/>
+        </Method>
+        <Method name="getExerciseItemId" returnType="Long" visibility="public"/>
+        <Method name="setExerciseItemId" returnType="void" visibility="public">
+          <Argument type="Long" name="exerciseItemId"/>
+        </Method>
+        <Method name="getSets" returnType="LinkedList&lt;Set&gt;" visibility="public"/>
+        <Method name="getWorkoutHistoryForUser" returnType="LinkedList&lt;? extends BaseModel&gt;" visibility="public">
+          <Argument type="Long" name="id"/>
+        </Method>
+        <Method name="setSets" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Set&gt;" name="sets"/>
+        </Method>
+        <Method name="getWorkoutHistory" returnType="LinkedList&lt;WorkoutHistory&gt;" visibility="public"/>
+        <Method name="setWorkoutHistory" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;WorkoutHistory&gt;" name="workoutHistory"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="muscles" source="workout.controls.ImportService" target="workout.models.Muscle" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Muscle&gt;"/>
+    <HasRelation name="trainee" source="workout.view.TraineeView" target="workout.models.Trainee" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="exerciseItems" source="workout.controls.ImportService" target="workout.models.ExerciseItem" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;ExerciseItem&gt;"/>
+    <UseRelation source="workout.controls.ImportService" target="workout.models.ExerciseItem" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="workout.view.ExerciseView" target="workout.models.ExerciseItem" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="sets" source="workout.models.WorkoutHistory" target="workout.models.Set" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Set&gt;"/>
+    <IsRelation name="is" source="workout.models.Trainee" target="workout.models.BaseModel"/>
+    <HasRelation name="importService" source="workout.view.ExerciseView" target="workout.controls.ImportService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="muscleGroups" source="workout.controls.ImportService" target="workout.models.MuscleGroup" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;MuscleGroup&gt;"/>
+    <IsRelation name="is" source="workout.models.MuscleGroup" target="workout.models.BaseModel"/>
+    <HasRelation name="workoutHistory" source="workout.view.ExerciseView" target="workout.models.WorkoutHistory" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;WorkoutHistory&gt;"/>
+    <HasRelation name="trainees" source="workout.view.Trainees" target="workout.models.Trainee" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Trainee&gt;"/>
+    <UseRelation source="workout.view.Trainees" target="workout.models.Trainee" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="exerciseItems" source="workout.view.ExerciseView" target="workout.models.ExerciseItem" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;ExerciseItem&gt;"/>
+    <UseRelation source="workout.utils.CompareBaseModel" target="workout.models.BaseModel" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="workout.view.WorkoutView" target="workout.models.Set" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="workout.models.Set" target="workout.interfaces.Timed"/>
+    <IsRelation name="is" source="workout.models.ExerciseItem" target="workout.models.BaseModel"/>
+    <HasRelation name="muscleGroups" source="workout.view.ExerciseView" target="workout.models.MuscleGroup" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;MuscleGroup&gt;"/>
+    <HasRelation name="workoutHistory" source="workout.view.WorkoutView" target="workout.models.WorkoutHistory" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;WorkoutHistory&gt;"/>
+    <UseRelation source="workout.view.WorkoutView" target="workout.models.WorkoutHistory" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="workout.view.ExerciseView" target="workout.models.Muscle" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="workout.view.ExerciseView" target="workout.controls.ImportService" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="workout.controls.ImportService" target="workout.models.Muscle" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="workout.models.Set" target="workout.interfaces.Weightable"/>
+    <IsRelation name="is" source="workout.models.Set" target="workout.models.BaseModel"/>
+    <HasRelation name="muscles" source="workout.view.ExerciseView" target="workout.models.Muscle" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Muscle&gt;"/>
+    <IsRelation name="is" source="workout.models.Muscle" target="workout.models.BaseModel"/>
+    <IsRelation name="is" source="workout.models.WorkoutHistory" target="workout.models.BaseModel"/>
+    <UseRelation source="workout.view.TraineeView" target="workout.models.Trainee" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="sets" source="workout.view.WorkoutView" target="workout.models.Set" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Set&gt;"/>
+    <UseRelation source="workout.view.WorkoutView" target="workout.models.BaseModel" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="workout.view.TraineeView" target="workout.view.Trainees" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
